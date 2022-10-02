@@ -53,9 +53,9 @@ Then place the following partial to your template where you want the comments to
 You may want to change the Utterances theme on the fly, a common example is changing the Utterances to the corresponding theme when the user switches colors(dark/light).
 
 ```js
-import utterances from 'utterances/js';
+import Utterances from 'utterances/js';
 
-const utterances = new utterances('your utterances endpoint');
+const utterances = new Utterances('your utterances endpoint');
 utterances.setTheme('github-dark');
 ```
 
