@@ -54,6 +54,8 @@ Then place the following partial to your template where you want the comments to
 
 Or specify another options than `.Site.Params.utterances`, it's used to specify multiple Utterances configurations.
 
+> The global options will be merged into the custom options.
+
 ```go
 {{ partial "utterances/script-with-options" .Site.Params.blog.utterances }}
 ```
