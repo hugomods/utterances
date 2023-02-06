@@ -1,0 +1,19 @@
+{{- $options := . }}
+{{/* Merge the default options. */}}
+{{- if and $options (ne $options site.Params.utterances) }}
+  {{- $options = merge site.Params.utterances $options }}
+{{- end }}
+{{- with $options }}
+  {{- if or (not .repo) (not .mapping) }}
+    {{- warnf "[utterances] repo is required." }}
+  {{- end }}
+  <script
+    src="{{ .endpoint | strings.TrimSuffix "/" }}/client.js"
+    repo="{{ .repo }}"
+    issue-term="{{ .mapping }}"
+    {{ with .label }}label="{{ . }}"{{ end }}
+    theme="{{ .theme }}"
+    crossorigin="anonymous"
+    async
+  ></script>
+{{- end -}}
