@@ -16,12 +16,11 @@ This module add [Utterances](https://utteranc.es/) comments engine support for H
 
 > Requires extended Hugo and Go.
 
-Append the `github.com/razonyang/hugo-mod-utterances` to the theme.
+Append the `github.com/razonyang/hugo-mod-utterances` to the `module.imports`.
 
 ```toml
-theme = [
-    "github.com/razonyang/hugo-mod-utterances"
-]
+[[module.imports]]
+path = "github.com/razonyang/hugo-mod-utterances"
 ```
 
 ## Site Parameters
@@ -49,8 +48,14 @@ Firstly, we'll need to tweak the [site parameters](#site-parameters) listed abov
 
 Then place the following partial to your template where you want the comments to appear.
 
-```html
+```go
 {{ partial "utterances/script" . }}
+```
+
+Or specify another options than `.Site.Params.utterances`, it's used to specify multiple Utterances configurations.
+
+```go
+{{ partial "utterances/script-with-options" .Site.Params.blog.utterances }}
 ```
 
 ## JS APIs
