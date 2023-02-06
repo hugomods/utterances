@@ -1,18 +1,14 @@
 class Utterances {
-    private endpoint = ''
-
-    constructor(endpoint: string) {
-        this.endpoint = endpoint.replace(/\/$/, '')
-    }
-
     setTheme(theme: string) {
         const msg = {
             type: 'set-theme',
             theme: theme,
-        };
-        const iframe = document.querySelector<HTMLIFrameElement>('.utterances-frame');
-        iframe?.contentWindow?.postMessage(msg, this.endpoint);
+        }
+        document.querySelectorAll<HTMLIFrameElement>('.utterances-frame').forEach((frame) => {
+            const endpoint = (new URL(frame.src)).origin
+            frame.contentWindow?.postMessage(msg, endpoint)
+        })
     }
 }
 
-export default Utterances;
+export default Utterances

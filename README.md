@@ -55,7 +55,7 @@ You may want to change the Utterances theme on the fly, a common example is chan
 ```js
 import Utterances from 'utterances/js';
 
-const utterances = new Utterances('your utterances endpoint');
+const utterances = new Utterances();
 utterances.setTheme('github-dark');
 ```
 
