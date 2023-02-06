@@ -2,11 +2,8 @@
   <head>
     <title>{{ .Title }}</title>
     <style></style>
-    {{- $opts := dict
-      "params" (dict "endpoint" .Site.Params.utterances.endpoint)
-    -}}
     {{- $js := resources.Get "js/utterances.ts" }}
-    {{- $js = $js | js.Build $opts }}
+    {{- $js = $js | js.Build }}
     <script src="{{ $js.RelPermalink }}"></script>
   </head>
   <body>
