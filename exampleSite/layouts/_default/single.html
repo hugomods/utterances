@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>{{ .Title }}</title>
+    <style></style>
+    {{- $js := resources.Get "js/utterances.ts" }}
+    {{- $js = $js | js.Build }}
+    <script src="{{ $js.RelPermalink }}"></script>
+  </head>
+  <body>
+    <h1>
+      <a href="https://github.com/hugomods/utterances"
+        >{{ .Title }}</a
+      >
+    </h1>
+    <p>Reading in:</p>
+    <ul>
+      {{- range .Translations }}
+        <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+      {{- end }}
+    </ul>
+    <div>
+      {{ .Content }}
+    </div>
+    <div>
+      <p>Change theme on the fly.</p>
+      <select onchange="Utterances.setTheme(this.value)">
+        <option value="github-light">GitHub Light</option>
+        <option value="github-dark">GitHub Dark</option>
+        <option value="github-dark-orange">GitHub Dark Orange</option>
+        <option value="icy-dark">Icy Dark</option>
+        <option value="dark-blue">Dark Blue</option>
+        <option value="photon-dark">Photon Dark</option>
+        <option value="boxy-light">Boxy Light</option>
+        <option value="gruvbox-dark">Gruvbox Dark</option>
+      </select>
+    </div>
+    <h2>Comments</h2>
+    <div>
+      {{ partial "utterances/script" . }}
+    </div>
+  </body>
+</html>
