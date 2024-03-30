@@ -5,4 +5,4 @@
 [![License](https://img.shields.io/github/license/hugomods/utterances?style=flat-square)](https://github.com/hugomods/utterances/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/tag/hugomods/utterances?label=version&style=flat-square)](https://github.com/hugomods/utterances/tags)
 
-This module add [Utterances](https://utteranc.es/) comments engine support for Hugo, see the [documentations](https://hugomods.com/en/docs/comment-engines/utterances) for details.
+This module add [Utterances](https://utteranc.es/) comments engine support for Hugo, see the [documentation](https://hugomods.com/en/docs/comment-engines/utterances) for details.
